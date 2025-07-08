@@ -13,18 +13,22 @@ RUN apt-get update && apt-get install -y \
     libsm6 \
     libxext6 \
     libxrender-dev \
+    git \
     && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
 WORKDIR /app
 
-# Copy code
-COPY . /app/
+# Copy only requirement files first (to leverage Docker cache)
+COPY requirements.txt .
 
-# Install Python dependencies
+# Install Python dependencies early
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 RUN python -m spacy download en_core_web_sm
+
+# Copy the rest of your application code
+COPY . .
 
 # Expose Streamlit default port
 EXPOSE 8501
