@@ -1,0 +1,12 @@
+streamlit
+langchain
+langchain-community
+langchain-core
+langchain-ollama
+sentence-transformers
+scikit-learn
+PyMuPDF
+pdf2image
+pytesseract
+spacy
+numpy
