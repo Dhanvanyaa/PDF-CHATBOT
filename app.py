@@ -31,7 +31,7 @@ sys.modules["torch.classes"] = None
 st.set_page_config(page_title="PDF Chatbot with LLaMA (LangChain Memory)", layout="wide")
 
 # --- Initialize LLM and embeddings ---
-llm = OllamaLLM(model="llama3", base_url="http://localhost:11434")
+llm = OllamaLLM(model="llama3", base_url="http://ollama:11434")
 embedder = OllamaEmbeddings(model="llama3")
 
 # --- Enhanced Session state with LangChain memory ---
@@ -77,7 +77,7 @@ INTENT_TEMPLATES = {
         "i want to know about",
         "give me information on",
         "define",
-        "describe"
+        "describe",
         "can we play"
     ]
 }
